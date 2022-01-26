@@ -51,51 +51,31 @@ namespace MonsterBash
         {
             instrustionLabel.Text = "How To Play\nArrow Keys to Move\nB = Place Trap\nN = Dash\nM = Sword Attack\nSpace = Shoot\nFight waves of enemies\nChoose bettween a Shotgun and Assualt Rifle\nChoose between a Bear Trap and a Land Mine\nThe faster you go the more Points you will get!";
 
+
+
             XmlReader reader = XmlReader.Create("Properties/highscore.xml");
-
             scoreLabel.Text = "";
-
             while (reader.Read())
             {
                 if (reader.NodeType == XmlNodeType.Text)
                 {
-
                     scoreOne = Convert.ToInt32(reader.ReadString());
-
                     reader.ReadToNextSibling("nameOne");
-
                     nameOne = reader.ReadString();
 
-
-
                     reader.ReadToNextSibling("scoreTwo");
-
                     scoreTwo = Convert.ToInt32(reader.ReadString());
-
                     reader.ReadToNextSibling("nameTwo");
-
                     nameTwo = reader.ReadString();
 
-
-
                     reader.ReadToNextSibling("scoreThree");
-
                     scoreThree = Convert.ToInt32(reader.ReadString());
-
                     reader.ReadToNextSibling("nameThree");
-
                     nameThree = reader.ReadString();
-
                 }
-
             }
-
             reader.Close();
-
             scoreLabel.Text = $"Highscores:\n{scoreOne}  {nameOne}\n{scoreTwo}  {nameTwo}\n{scoreThree}  {nameThree}";
-
-
-
         }
     }
 }

@@ -1390,11 +1390,11 @@ namespace MonsterBash
         }
         private void LevelPrep()
         {
+            player.health += 5;
             player.x = 575;
             player.y = 325;
             if (Form1.gunType == "shotgun") gun.bulletCount = 8;
             else gun.bulletCount = 24;
-            traps.Clear();
             bullets.Clear();
         }
         private void BaseWalls()

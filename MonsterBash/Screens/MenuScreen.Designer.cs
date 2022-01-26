@@ -34,6 +34,8 @@ namespace MonsterBash
             this.scoreLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.instrustionLabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // startButton
@@ -95,11 +97,21 @@ namespace MonsterBash
             this.instrustionLabel.Text = "test";
             this.instrustionLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::MonsterBash.Properties.Resources.title;
+            this.pictureBox1.Location = new System.Drawing.Point(487, 429);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(700, 250);
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
             // MenuScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SandyBrown;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.instrustionLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.scoreLabel);
@@ -108,6 +120,7 @@ namespace MonsterBash
             this.Name = "MenuScreen";
             this.Size = new System.Drawing.Size(1200, 700);
             this.Load += new System.EventHandler(this.MenuScreen_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -119,5 +132,6 @@ namespace MonsterBash
         private System.Windows.Forms.Label scoreLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label instrustionLabel;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
