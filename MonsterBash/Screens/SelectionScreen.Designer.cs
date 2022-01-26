@@ -49,6 +49,7 @@ namespace MonsterBash
             this.difficulty8 = new System.Windows.Forms.Button();
             this.difficulty9 = new System.Windows.Forms.Button();
             this.Start = new System.Windows.Forms.Button();
+            this.backButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -284,10 +285,25 @@ namespace MonsterBash
             this.Start.Enter += new System.EventHandler(this.Start_Enter);
             this.Start.Leave += new System.EventHandler(this.Start_Leave);
             // 
+            // backButton
+            // 
+            this.backButton.BackColor = System.Drawing.Color.White;
+            this.backButton.Font = new System.Drawing.Font("Algerian", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.backButton.Location = new System.Drawing.Point(1047, 622);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(150, 75);
+            this.backButton.TabIndex = 33;
+            this.backButton.Text = "BACK";
+            this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            this.backButton.Enter += new System.EventHandler(this.backButton_Enter);
+            this.backButton.Leave += new System.EventHandler(this.backButton_Leave);
+            // 
             // SelectionScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.backButton);
             this.Controls.Add(this.Start);
             this.Controls.Add(this.difficulty9);
             this.Controls.Add(this.difficulty8);
@@ -332,5 +348,6 @@ namespace MonsterBash
         private System.Windows.Forms.Button difficulty8;
         private System.Windows.Forms.Button difficulty9;
         private System.Windows.Forms.Button Start;
+        private System.Windows.Forms.Button backButton;
     }
 }

@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*  Created by: Sam
+ *  Project: Monster Bash
+ *  Date: January 26rd, 2022
+ */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,12 +12,22 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading;
 using System.Media;
+using System.IO;
 
 namespace MonsterBash
 {
     public partial class GameScreen : UserControl
     {
         #region globals
+        //sounds
+        SoundPlayer slash = new SoundPlayer(Properties.Resources.slash);
+        SoundPlayer dash = new SoundPlayer(Properties.Resources.dash);
+        SoundPlayer shotgunShoot = new SoundPlayer(Properties.Resources.shotgunShoot);
+        SoundPlayer ARShoot = new SoundPlayer(Properties.Resources.ARShoot);
+        SoundPlayer shotgunReload = new SoundPlayer(Properties.Resources.reloadShotgun);
+        SoundPlayer ARReload = new SoundPlayer(Properties.Resources.reloadAR);      
+        SoundPlayer outOfAmmo = new SoundPlayer(Properties.Resources.out_of_ammo);
+
         //object creation
         Player player;
         Gun gun;
@@ -22,15 +37,10 @@ namespace MonsterBash
         List<Wall> walls = new List<Wall>();
         List<Bullet> bullets = new List<Bullet>();
         //colours
-        SolidBrush HatBrush = new SolidBrush(Color.Brown);
         SolidBrush WallBrush = new SolidBrush(Color.DimGray);
-        SolidBrush GunBrush = new SolidBrush(Color.SaddleBrown);
         SolidBrush SwordBrush = new SolidBrush(Color.DarkGray);
-        SolidBrush MonsterBrush = new SolidBrush(Color.DarkOliveGreen);
         SolidBrush TrapBrush = new SolidBrush(Color.Black);
         SolidBrush ExplosionBrush = new SolidBrush(Color.OrangeRed);
-        //sounds
-
         //input detection
         public static bool leftKey = false;
         public static bool rightKey = false;
@@ -64,6 +74,8 @@ namespace MonsterBash
             player = new Player(600, 350, 10, 15, 50);
             gun = new Gun($"{Form1.gunType}", 100, 100, 40, 15);
             sword = new Sword(100, 100, 5, 50, 10);
+
+            
         }
         #region keys
         private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -409,7 +421,6 @@ namespace MonsterBash
                     }
                     break;
                 case "wait":
-
                     #region player Move
                     // direction 1 is up, then is goes around clockwise
                     if (GameScreen.rightKey && GameScreen.upKey)
@@ -521,11 +532,11 @@ namespace MonsterBash
                         player.x += player.tempXSpeed;
                     }
                     #endregion
-
                     #region start player Dash
                     //dash detection
                     if (nKey && player.dashCooldown <= 0)
                     {
+                        dash.Play();
                         player.state = "dash";
                         player.dashCooldown = 20;
                     }
@@ -535,10 +546,10 @@ namespace MonsterBash
                     }
 
                     #endregion
-
                     #region start player Slash
                     if (mKey && sword.swordCooldown <= 0)
                     {
+                        slash.Play();
                         sword.attacking = true;
                         sword.swordCooldown = 4;
                         player.state = "slash";
@@ -555,20 +566,20 @@ namespace MonsterBash
                         }
                     }
                     #endregion
-
                     #region player Shoot
                     if (spaceKey && gun.bulletReload <= 0 && gun.bulletCount > 0)
                     {
+                        
                         if (gun.type == "shotgun")
                         {
-                            gun.bulletReload = 15;
+                            gun.bulletReload = 20;
+                            shotgunShoot.Play();
                         }
                         else
                         {
-                            gun.bulletReload = 5;
+                            gun.bulletReload = 9;
+                            ARShoot.Play();
                         }
-
-
                         gun.bulletCount--;
                         switch (player.hardDirection)
                         {
@@ -640,8 +651,8 @@ namespace MonsterBash
                         player.y += player.tempYSpeed;
                         player.x += player.tempXSpeed;
                     }
+                    if (spaceKey && gun.bulletCount <= 0) outOfAmmo.Play();
                     #endregion
-
                     #region  place trap
                     if (bKey && totalTraps > 0)
                     {
@@ -655,7 +666,6 @@ namespace MonsterBash
                     }
                     placeWait--;
                     #endregion
-
                     break;
             }
             healthLabel.Text = $"Health: {player.health}";
@@ -722,7 +732,6 @@ namespace MonsterBash
                         break;
                 }
             }
-
             //bullet logic
             foreach (Bullet b in bullets)
             {
@@ -751,8 +760,16 @@ namespace MonsterBash
                 }
                 else
                 {
-                    if (gun.type == "shotgun") gun.bulletCount = 4;
-                    else gun.bulletCount = 30;
+                    if (gun.type == "shotgun")
+                    {
+                        shotgunReload.Play();
+                        gun.bulletCount = 8;
+                    }
+                    else
+                    {
+                        ARReload.Play();
+                        gun.bulletCount = 30;
+                    }
                     gun.gunReload = 100;
                 }
             }
@@ -881,11 +898,11 @@ namespace MonsterBash
             }
             else //assualt rifle
             {
-                gun.damage = 3;
-                gun.bulletCount = 24;
+                gun.damage = 4;
+                gun.bulletCount = 20;
                 gun.bulletReload = 3;
                 xBullet = 16;
-                yBullet = 5;
+                yBullet = 8;
             }
             if (Form1.trapType == "bearTrap") //bear trap
             {
@@ -1414,6 +1431,5 @@ namespace MonsterBash
             }
             else return false;
         }
-
     }
 }

@@ -40,7 +40,7 @@ namespace MonsterBash
             // 
             this.startButton.BackColor = System.Drawing.Color.White;
             this.startButton.Font = new System.Drawing.Font("Algerian", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.startButton.Location = new System.Drawing.Point(14, 433);
+            this.startButton.Location = new System.Drawing.Point(14, 429);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(450, 120);
             this.startButton.TabIndex = 0;
@@ -75,7 +75,7 @@ namespace MonsterBash
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.IndianRed;
+            this.label1.BackColor = System.Drawing.Color.SandyBrown;
             this.label1.Font = new System.Drawing.Font("Algerian", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(225, 3);
             this.label1.Name = "label1";
@@ -90,7 +90,7 @@ namespace MonsterBash
             this.instrustionLabel.Font = new System.Drawing.Font("Algerian", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.instrustionLabel.Location = new System.Drawing.Point(487, 106);
             this.instrustionLabel.Name = "instrustionLabel";
-            this.instrustionLabel.Size = new System.Drawing.Size(700, 187);
+            this.instrustionLabel.Size = new System.Drawing.Size(700, 307);
             this.instrustionLabel.TabIndex = 4;
             this.instrustionLabel.Text = "test";
             this.instrustionLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -99,7 +99,7 @@ namespace MonsterBash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.IndianRed;
+            this.BackColor = System.Drawing.Color.SandyBrown;
             this.Controls.Add(this.instrustionLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.scoreLabel);

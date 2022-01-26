@@ -49,7 +49,7 @@ namespace MonsterBash
 
         private void MenuScreen_Load(object sender, EventArgs e)
         {
-            instrustionLabel.Text = "How To Play\nB = Place Trap\nN = Dash\nM = Sword Attack\nSpace = Shoot\nFight agiasnt waves of enemies\nThe faster you go the more Points you will get!";
+            instrustionLabel.Text = "How To Play\nArrow Keys to Move\nB = Place Trap\nN = Dash\nM = Sword Attack\nSpace = Shoot\nFight waves of enemies\nChoose bettween a Shotgun and Assualt Rifle\nChoose between a Bear Trap and a Land Mine\nThe faster you go the more Points you will get!";
 
             XmlReader reader = XmlReader.Create("Properties/highscore.xml");
 

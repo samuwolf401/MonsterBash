@@ -101,32 +101,20 @@ namespace MonsterBash.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static byte[] ARShoot {
+        internal static System.IO.UnmanagedMemoryStream ARShoot {
             get {
-                object obj = ResourceManager.GetObject("ARShoot", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetStream("ARShoot", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static byte[] click {
+        internal static System.IO.UnmanagedMemoryStream click {
             get {
-                object obj = ResourceManager.GetObject("click", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] Cyclops {
-            get {
-                object obj = ResourceManager.GetObject("Cyclops", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetStream("click", resourceCulture);
             }
         }
         
@@ -141,32 +129,11 @@ namespace MonsterBash.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static byte[] dash {
+        internal static System.IO.UnmanagedMemoryStream dash {
             get {
-                object obj = ResourceManager.GetObject("dash", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] death {
-            get {
-                object obj = ResourceManager.GetObject("death", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] goblin {
-            get {
-                object obj = ResourceManager.GetObject("goblin", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetStream("dash", resourceCulture);
             }
         }
         
@@ -221,12 +188,11 @@ namespace MonsterBash.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static byte[] out_of_ammo {
+        internal static System.IO.UnmanagedMemoryStream out_of_ammo {
             get {
-                object obj = ResourceManager.GetObject("out_of_ammo", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetStream("out_of_ammo", resourceCulture);
             }
         }
         
@@ -251,52 +217,47 @@ namespace MonsterBash.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static byte[] reloadAR {
+        internal static System.IO.UnmanagedMemoryStream reloadAR {
             get {
-                object obj = ResourceManager.GetObject("reloadAR", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetStream("reloadAR", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static byte[] reloadShotgun {
+        internal static System.IO.UnmanagedMemoryStream reloadShotgun {
             get {
-                object obj = ResourceManager.GetObject("reloadShotgun", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetStream("reloadShotgun", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static byte[] shotgunShoot {
+        internal static System.IO.UnmanagedMemoryStream reloadShotgun__1_ {
             get {
-                object obj = ResourceManager.GetObject("shotgunShoot", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetStream("reloadShotgun__1_", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static byte[] slash {
+        internal static System.IO.UnmanagedMemoryStream shotgunShoot {
             get {
-                object obj = ResourceManager.GetObject("slash", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetStream("shotgunShoot", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static byte[] troll {
+        internal static System.IO.UnmanagedMemoryStream slash {
             get {
-                object obj = ResourceManager.GetObject("troll", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetStream("slash", resourceCulture);
             }
         }
         

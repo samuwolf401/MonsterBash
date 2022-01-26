@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Media;
 
 namespace MonsterBash
 {
@@ -13,7 +14,7 @@ namespace MonsterBash
         bool gunSelect;
         bool trapSelect;
         bool difficultySelect;
-
+        SoundPlayer click = new SoundPlayer(Properties.Resources.click);
         public SelectionScreen()
         {
             InitializeComponent();
@@ -21,6 +22,7 @@ namespace MonsterBash
 
         private void gun1_Click(object sender, EventArgs e)
         {
+            click.Play();
             Form1.gunType = "shotgun";
             gunSelect = true;
             if (gunSelect && trapSelect && difficultySelect) Start.BackColor = Color.Green;
@@ -30,6 +32,7 @@ namespace MonsterBash
 
         private void gun2_Click(object sender, EventArgs e)
         {
+            click.Play();
             Form1.gunType = "assualtRifle";
             gunSelect = true;
             if (gunSelect && trapSelect && difficultySelect) Start.BackColor = Color.Green;
@@ -39,6 +42,7 @@ namespace MonsterBash
 
         private void trap1_Click(object sender, EventArgs e)
         {
+            click.Play();
             Form1.trapType = "bearTrap";
             trapSelect = true;
             if (gunSelect && trapSelect && difficultySelect) Start.BackColor = Color.Green;
@@ -48,6 +52,7 @@ namespace MonsterBash
 
         private void trap2_Click(object sender, EventArgs e)
         {
+            click.Play();
             Form1.trapType = "landMine";
             trapSelect = true;
             if (gunSelect && trapSelect && difficultySelect) Start.BackColor = Color.Green;
@@ -57,6 +62,7 @@ namespace MonsterBash
 
         private void Start_Click(object sender, EventArgs e)
         {
+            click.Play();
             if (gunSelect && trapSelect && difficultySelect)
             {
                 Form f = this.FindForm();
@@ -68,7 +74,8 @@ namespace MonsterBash
         }
 
         private void difficulty0_Click(object sender, EventArgs e)
-        {            
+        {
+            click.Play();
             Form1.difficultyType = 0;
             difficultySelect = true;
             difficulty0.BackColor = Color.Silver;
@@ -86,6 +93,7 @@ namespace MonsterBash
 
         private void difficulty1_Click(object sender, EventArgs e)
         {
+            click.Play();
             Form1.difficultyType = 1;
             difficultySelect = true;
             difficulty0.BackColor = Color.White;
@@ -103,6 +111,7 @@ namespace MonsterBash
 
         private void difficulty2_Click(object sender, EventArgs e)
         {
+            click.Play();
             Form1.difficultyType = 2;
             difficultySelect = true;
             difficulty0.BackColor = Color.White;
@@ -120,6 +129,7 @@ namespace MonsterBash
 
         private void difficulty3_Click(object sender, EventArgs e)
         {
+            click.Play();
             Form1.difficultyType = 3;
             difficultySelect = true;
             difficulty0.BackColor = Color.White;
@@ -137,6 +147,7 @@ namespace MonsterBash
 
         private void difficulty4_Click(object sender, EventArgs e)
         {
+            click.Play();
             Form1.difficultyType = 4;
             difficultySelect = true;
             difficulty0.BackColor = Color.White;
@@ -154,6 +165,7 @@ namespace MonsterBash
 
         private void difficulty5_Click(object sender, EventArgs e)
         {
+            click.Play();
             Form1.difficultyType = 5;
             difficultySelect = true;
             difficulty0.BackColor = Color.White;
@@ -171,6 +183,7 @@ namespace MonsterBash
 
         private void difficulty6_Click(object sender, EventArgs e)
         {
+            click.Play();
             Form1.difficultyType = 6;
             difficultySelect = true;
             difficulty0.BackColor = Color.White;
@@ -188,6 +201,7 @@ namespace MonsterBash
 
         private void difficulty7_Click(object sender, EventArgs e)
         {
+            click.Play();
             Form1.difficultyType = 7;
             difficultySelect = true;
             difficulty0.BackColor = Color.White;
@@ -205,6 +219,7 @@ namespace MonsterBash
 
         private void difficulty8_Click(object sender, EventArgs e)
         {
+            click.Play();
             Form1.difficultyType = 8;
             difficultySelect = true;
             difficulty0.BackColor = Color.White;
@@ -222,6 +237,7 @@ namespace MonsterBash
 
         private void difficulty9_Click(object sender, EventArgs e)
         {
+            click.Play();
             Form1.difficultyType = 9;
             difficultySelect = true;
             difficulty0.BackColor = Color.White;
@@ -401,6 +417,25 @@ namespace MonsterBash
         {
             if (gunSelect && trapSelect && difficultySelect) Start.BackColor = Color.Green;
             else Start.BackColor = Color.OrangeRed;
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            click.Play();
+            Form f = this.FindForm();
+            MenuScreen ms = new MenuScreen();
+            f.Controls.Add(ms);
+            f.Controls.Remove(this);
+        }
+
+        private void backButton_Enter(object sender, EventArgs e)
+        {
+            backButton.BackColor = Color.LightGray;
+        }
+
+        private void backButton_Leave(object sender, EventArgs e)
+        {
+            backButton.BackColor = Color.White;
         }
     }
 }
