@@ -38,32 +38,32 @@ namespace MonsterBash
                     tempYSpeed = -baseSpeed;
                     break;
                 case 2:
-                    tempXSpeed = baseSpeed;
-                    tempYSpeed = -baseSpeed;
+                    tempXSpeed = 7;
+                    tempYSpeed = -7;
                     break;
                 case 3:
                     tempXSpeed = baseSpeed;
                     tempYSpeed = 0;
                     break;
                 case 4:
-                    tempXSpeed = baseSpeed;
-                    tempYSpeed = baseSpeed;
+                    tempXSpeed = 7;
+                    tempYSpeed = 7;
                     break;
                 case 5:
                     tempXSpeed = 0;
                     tempYSpeed = baseSpeed;
                     break;
                 case 6:
-                    tempXSpeed = -baseSpeed;
-                    tempYSpeed = baseSpeed;
+                    tempXSpeed = -7;
+                    tempYSpeed = 7;
                     break;
                 case 7:
                     tempXSpeed = -baseSpeed;
                     tempYSpeed = 0;
                     break;
                 case 8:
-                    tempXSpeed = -baseSpeed;
-                    tempYSpeed = -baseSpeed;
+                    tempXSpeed = -7;
+                    tempYSpeed = -7;
                     break;
             }
         }
@@ -141,32 +141,32 @@ namespace MonsterBash
                     tempYSpeed = -dashSpeed;
                     break;
                 case 2:
-                    tempXSpeed = dashSpeed;
-                    tempYSpeed = -dashSpeed;
+                    tempXSpeed = 32;
+                    tempYSpeed = -32;
                     break;
                 case 3:
                     tempXSpeed = dashSpeed;
                     tempYSpeed = 0;
                     break;
                 case 4:
-                    tempXSpeed = dashSpeed;
-                    tempYSpeed = dashSpeed;
+                    tempXSpeed = 32;
+                    tempYSpeed = 32;
                     break;
                 case 5:
                     tempXSpeed = 0;
                     tempYSpeed = dashSpeed;
                     break;
                 case 6:
-                    tempXSpeed = -dashSpeed;
-                    tempYSpeed = dashSpeed;
+                    tempXSpeed = -32;
+                    tempYSpeed = 32;
                     break;
                 case 7:
                     tempXSpeed = -dashSpeed;
                     tempYSpeed = 0;
                     break;
                 case 8:
-                    tempXSpeed = -dashSpeed;
-                    tempYSpeed = -dashSpeed;
+                    tempXSpeed = -32;
+                    tempYSpeed = -32;
                     break;
             }
         }

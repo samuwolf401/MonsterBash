@@ -30,7 +30,7 @@ namespace MonsterBash
         SolidBrush TrapBrush = new SolidBrush(Color.Black);
         SolidBrush ExplosionBrush = new SolidBrush(Color.OrangeRed);
         //sounds
-        
+
         //input detection
         public static bool leftKey = false;
         public static bool rightKey = false;
@@ -798,7 +798,7 @@ namespace MonsterBash
                             }
                             else
                             {
-                                
+
                                 m.x += m.speed * m.xDir;
                                 m.y += m.speed * m.yDir;
                             }
@@ -870,7 +870,7 @@ namespace MonsterBash
         private void GameScreen_Load(object sender, EventArgs e)
         {
             GameTick.Enabled = true;
-            
+
             if (Form1.gunType == "shotgun") //shotgun
             {
                 gun.damage = 11;
@@ -944,7 +944,18 @@ namespace MonsterBash
             }
             foreach (Monster m in monsters)
             {
-                e.Graphics.FillRectangle(MonsterBrush, m.x, m.y, m.xSize, m.ySize);
+                if (m.type == "goblin")
+                {
+                    e.Graphics.DrawImage(Properties.Resources.goblin1, m.x, m.y, m.xSize, m.ySize);
+                }
+                else if (m.type == "cyclops")
+                {
+                    e.Graphics.DrawImage(Properties.Resources.Cyclops1, m.x, m.y, m.xSize, m.ySize);
+                }
+                else if (m.type == "troll")
+                {
+                    e.Graphics.DrawImage(Properties.Resources.troll1, m.x, m.y, m.xSize, m.ySize);
+                }
             }
             foreach (Trap t in traps)
             {
@@ -952,8 +963,59 @@ namespace MonsterBash
                 else e.Graphics.FillRectangle(TrapBrush, t.x, t.y, t.size, t.size);
             }
             e.Graphics.FillRectangle(SwordBrush, sword.x, sword.y, sword.xSize, sword.ySize);
-            e.Graphics.FillRectangle(GunBrush, gun.x, gun.y, gun.xSize, gun.ySize);
-            e.Graphics.FillEllipse(HatBrush, player.x, player.y, player.size, player.size);
+            if (player.hardDirection == 1)
+            {
+                if (gun.type == "shotgun")
+                {
+                    e.Graphics.DrawImage(Properties.Resources.gun4, gun.x, gun.y, gun.xSize, gun.ySize);
+                }
+                else
+                {
+                    e.Graphics.DrawImage(Properties.Resources.AR4, gun.x, gun.y, gun.xSize, gun.ySize);
+                }
+            }
+            if (player.hardDirection == 3)
+            {
+                if (gun.type == "shotgun")
+                {
+                    e.Graphics.DrawImage(Properties.Resources.gun1, gun.x, gun.y, gun.xSize, gun.ySize);
+                }
+                else
+                {
+                    e.Graphics.DrawImage(Properties.Resources.AR1_2, gun.x, gun.y, gun.xSize, gun.ySize);
+                }
+            }
+            if (player.hardDirection == 5)
+            {
+                if (gun.type == "shotgun")
+                {
+                    e.Graphics.DrawImage(Properties.Resources.gun3, gun.x, gun.y, gun.xSize, gun.ySize);
+                }
+                else
+                {
+                    e.Graphics.DrawImage(Properties.Resources.AR5, gun.x, gun.y, gun.xSize, gun.ySize);
+                }
+            }
+            if (player.hardDirection == 7)
+            {
+                if (gun.type == "shotgun")
+                {
+                    e.Graphics.DrawImage(Properties.Resources.gun2, gun.x, gun.y, gun.xSize, gun.ySize);
+                }
+                else
+                {
+                    e.Graphics.DrawImage(Properties.Resources.AR1_3, gun.x, gun.y, gun.xSize, gun.ySize);
+                }
+            }
+            if (player.hardDirection == 1 || player.hardDirection == 5)
+            {
+                e.Graphics.DrawImage(Properties.Resources.player, player.x, player.y, player.size, player.size);
+            }
+            else
+            {
+                e.Graphics.DrawImage(Properties.Resources.player2, player.x, player.y, player.size, player.size);
+            }
+            
         }
         public void CreateMonsters(int wave, int level)
         {
@@ -1172,7 +1234,7 @@ namespace MonsterBash
                         {
                             traps.Remove(t);
                             return true;
-                        }             
+                        }
                         traps.Remove(t);
                         break;
                     }
@@ -1183,9 +1245,9 @@ namespace MonsterBash
                         t.expY = t.y - 50;
                         t.expSize = t.size + 100;
 
-                        if (Explosion(t)) return true;                        
+                        if (Explosion(t)) return true;
                         else return false;
-                        
+
                     }
                 }
             }
@@ -1264,8 +1326,8 @@ namespace MonsterBash
                     Rectangle MonsterRec = new Rectangle(m.x, m.y, m.xSize, m.ySize);
                     if (MonsterRec.IntersectsWith(ExplosionRec))
                     {
-                        if (MonsterDamage(m, trapDamage)) return true;                        
-                    }                    
+                        if (MonsterDamage(m, trapDamage)) return true;
+                    }
                 }
             }
             return false;
