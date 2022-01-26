@@ -34,6 +34,8 @@ namespace MonsterBash
             this.retryButton = new System.Windows.Forms.Button();
             this.menuButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label
@@ -50,7 +52,7 @@ namespace MonsterBash
             // scoreLabel
             // 
             this.scoreLabel.Font = new System.Drawing.Font("Algerian", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.scoreLabel.Location = new System.Drawing.Point(400, 220);
+            this.scoreLabel.Location = new System.Drawing.Point(400, 191);
             this.scoreLabel.Name = "scoreLabel";
             this.scoreLabel.Size = new System.Drawing.Size(400, 50);
             this.scoreLabel.TabIndex = 1;
@@ -95,11 +97,33 @@ namespace MonsterBash
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             this.exitButton.Enter += new System.EventHandler(this.exitButton_Enter);
             // 
+            // nameTextBox
+            // 
+            this.nameTextBox.Font = new System.Drawing.Font("Algerian", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.nameTextBox.Location = new System.Drawing.Point(570, 292);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(69, 39);
+            this.nameTextBox.TabIndex = 5;
+            this.nameTextBox.Text = "AAA";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Algerian", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(472, 263);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(270, 26);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Enter Three Letters";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // EndScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SandyBrown;
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.menuButton);
             this.Controls.Add(this.retryButton);
@@ -109,6 +133,7 @@ namespace MonsterBash
             this.Size = new System.Drawing.Size(1200, 700);
             this.Load += new System.EventHandler(this.EndScreen_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -119,5 +144,7 @@ namespace MonsterBash
         private System.Windows.Forms.Button retryButton;
         private System.Windows.Forms.Button menuButton;
         private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.TextBox nameTextBox;
+        private System.Windows.Forms.Label label1;
     }
 }

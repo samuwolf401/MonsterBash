@@ -5,14 +5,19 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace MonsterBash
 {
     public partial class MenuScreen : UserControl
     {
-        public static int position = 1;
-        public static bool Key;
-        public static bool space;
+        int scoreOne;
+        string nameOne;
+        int scoreTwo;
+        string nameTwo;
+        int scoreThree;
+        string nameThree;
+
         public MenuScreen()
         {
             InitializeComponent();
@@ -45,6 +50,52 @@ namespace MonsterBash
         private void MenuScreen_Load(object sender, EventArgs e)
         {
             instrustionLabel.Text = "How To Play\nB = Place Trap\nN = Dash\nM = Sword Attack\nSpace = Shoot\nFight agiasnt waves of enemies\nThe faster you go the more Points you will get!";
+
+            XmlReader reader = XmlReader.Create("Properties/highscore.xml");
+
+            scoreLabel.Text = "";
+
+            while (reader.Read())
+            {
+                if (reader.NodeType == XmlNodeType.Text)
+                {
+
+                    scoreOne = Convert.ToInt32(reader.ReadString());
+
+                    reader.ReadToNextSibling("nameOne");
+
+                    nameOne = reader.ReadString();
+
+
+
+                    reader.ReadToNextSibling("scoreTwo");
+
+                    scoreTwo = Convert.ToInt32(reader.ReadString());
+
+                    reader.ReadToNextSibling("nameTwo");
+
+                    nameTwo = reader.ReadString();
+
+
+
+                    reader.ReadToNextSibling("scoreThree");
+
+                    scoreThree = Convert.ToInt32(reader.ReadString());
+
+                    reader.ReadToNextSibling("nameThree");
+
+                    nameThree = reader.ReadString();
+
+                }
+
+            }
+
+            reader.Close();
+
+            scoreLabel.Text = $"Highscores:\n{scoreOne}  {nameOne}\n{scoreTwo}  {nameTwo}\n{scoreThree}  {nameThree}";
+
+
+
         }
     }
 }

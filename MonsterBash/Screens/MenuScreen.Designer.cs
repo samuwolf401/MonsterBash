@@ -31,7 +31,7 @@ namespace MonsterBash
         {
             this.startButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
-            this.backLabel = new System.Windows.Forms.Label();
+            this.scoreLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.instrustionLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -62,14 +62,16 @@ namespace MonsterBash
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             this.exitButton.Enter += new System.EventHandler(this.exitButton_Enter);
             // 
-            // backLabel
+            // scoreLabel
             // 
-            this.backLabel.BackColor = System.Drawing.Color.White;
-            this.backLabel.Location = new System.Drawing.Point(14, 106);
-            this.backLabel.Name = "backLabel";
-            this.backLabel.Size = new System.Drawing.Size(450, 308);
-            this.backLabel.TabIndex = 2;
-            this.backLabel.Text = "score stuff";
+            this.scoreLabel.BackColor = System.Drawing.Color.White;
+            this.scoreLabel.Font = new System.Drawing.Font("Algerian", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.scoreLabel.Location = new System.Drawing.Point(14, 106);
+            this.scoreLabel.Name = "scoreLabel";
+            this.scoreLabel.Size = new System.Drawing.Size(450, 307);
+            this.scoreLabel.TabIndex = 2;
+            this.scoreLabel.Text = "score stuff";
+            this.scoreLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label1
             // 
@@ -100,7 +102,7 @@ namespace MonsterBash
             this.BackColor = System.Drawing.Color.IndianRed;
             this.Controls.Add(this.instrustionLabel);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.backLabel);
+            this.Controls.Add(this.scoreLabel);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.startButton);
             this.Name = "MenuScreen";
@@ -114,7 +116,7 @@ namespace MonsterBash
 
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.Button exitButton;
-        private System.Windows.Forms.Label backLabel;
+        private System.Windows.Forms.Label scoreLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label instrustionLabel;
     }

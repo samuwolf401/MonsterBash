@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading;
+using System.Media;
 
 namespace MonsterBash
 {
@@ -28,7 +29,8 @@ namespace MonsterBash
         SolidBrush MonsterBrush = new SolidBrush(Color.DarkOliveGreen);
         SolidBrush TrapBrush = new SolidBrush(Color.Black);
         SolidBrush ExplosionBrush = new SolidBrush(Color.OrangeRed);
-
+        //sounds
+        
         //input detection
         public static bool leftKey = false;
         public static bool rightKey = false;
@@ -832,7 +834,7 @@ namespace MonsterBash
                 currentLevel++;
                 CreateLevel();
                 newLevel = false;
-                scoreTime = 6000;
+                scoreTime = 8000;
             }
 
             if (newWave)
@@ -852,6 +854,8 @@ namespace MonsterBash
                     {
                         currentLevel = 0;
                         difficulty++;
+                        if (Form1.trapType == "bearTrap") totalTraps = 8;
+                        else totalTraps = 4;
                     }
 
                 }
@@ -880,18 +884,18 @@ namespace MonsterBash
                 gun.damage = 3;
                 gun.bulletCount = 24;
                 gun.bulletReload = 3;
-                xBullet = 10;
-                yBullet = 3;
+                xBullet = 16;
+                yBullet = 5;
             }
             if (Form1.trapType == "bearTrap") //bear trap
             {
                 totalTraps = 8;
-                trapDamage = 99;
+                trapDamage = 25;
             }
             else // land mine
             {
                 totalTraps = 4;
-                trapDamage = 99; //in a radius
+                trapDamage = 20; //in a radius
             }
             switch (Form1.difficultyType)
             {
@@ -932,7 +936,7 @@ namespace MonsterBash
         {
             foreach (Bullet b in bullets)
             {
-                e.Graphics.FillRectangle(WallBrush, b.x, b.y, b.xSize, b.ySize);
+                e.Graphics.FillRectangle(SwordBrush, b.x, b.y, b.xSize, b.ySize);
             }
             foreach (Wall w in walls)
             {
@@ -959,21 +963,41 @@ namespace MonsterBash
                     switch (currentWave)
                     {
                         case 1:
-                            Monster c1 = new Monster("goblin", 1200, 700, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
-                            Monster c2 = new Monster("cyclops", 1200, 700, 2, 12 + (2 * difficulty), 2 + (difficulty), 35, 35, 20);
-                            Monster c3 = new Monster("troll", 0, 0, 1, 15 + (2 * difficulty), 2 + (difficulty), 50, 50, 30);
-                            Monster c4 = new Monster("cyclops", 0, 700, 2, 12 + (2 * difficulty), 2 + (difficulty), 35, 35, 20);
-                            monsters.Add(c4);
-                            monsters.Add(c3);
-                            monsters.Add(c2);
-                            monsters.Add(c1);
+                            Monster a1 = new Monster("goblin", 1200, 300, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
+                            Monster a2 = new Monster("cyclops", 1200, 700, 3, 12 + (2 * difficulty), 2 + (difficulty), 35, 35, 20);
+                            Monster a3 = new Monster("troll", 0, 100, 2, 15 + (2 * difficulty), 2 + (difficulty), 50, 50, 30);
+                            Monster a4 = new Monster("cyclops", 0, 700, 3, 12 + (2 * difficulty), 2 + (difficulty), 35, 35, 20);
+                            monsters.Add(a4);
+                            monsters.Add(a3);
+                            monsters.Add(a2);
+                            monsters.Add(a1);
                             monstersLeft = 4;
                             break;
                         case 2:
-
+                            Monster b1 = new Monster("troll", 0, 350, 2, 15 + (2 * difficulty), 2 + (difficulty), 50, 50, 30);
+                            Monster b2 = new Monster("goblin", 1200, 300, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
+                            Monster b3 = new Monster("goblin", 0, 100, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
+                            Monster b4 = new Monster("goblin", 700, 700, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
+                            Monster b5 = new Monster("goblin", 100, 700, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
+                            monsters.Add(b1);
+                            monsters.Add(b2);
+                            monsters.Add(b3);
+                            monsters.Add(b4);
+                            monsters.Add(b5);
+                            monstersLeft = 5;
                             break;
                         case 3:
-
+                            Monster c1 = new Monster("cyclops", 0, 700, 3, 12 + (2 * difficulty), 2 + (difficulty), 35, 35, 20);
+                            Monster c2 = new Monster("goblin", 1200, 700, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
+                            Monster c3 = new Monster("troll", 1200, 100, 1, 15 + (2 * difficulty), 2 + (difficulty), 50, 50, 30);
+                            Monster c4 = new Monster("goblin", 400, 700, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
+                            Monster c5 = new Monster("troll", 0, 350, 2, 15 + (2 * difficulty), 2 + (difficulty), 50, 50, 30);
+                            monsters.Add(c1);
+                            monsters.Add(c2);
+                            monsters.Add(c3);
+                            monsters.Add(c4);
+                            monsters.Add(c5);
+                            monstersLeft = 5;
                             break;
                     }
                     break;
@@ -981,15 +1005,53 @@ namespace MonsterBash
                     switch (currentWave)
                     {
                         case 1:
-                            Monster g1 = new Monster("goblin", 500, 500, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
-                            monsters.Add(g1);
-                            monstersLeft = 1;
+                            Monster d1 = new Monster("goblin", 1200, 350, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
+                            Monster d2 = new Monster("goblin", 900, 700, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
+                            Monster d3 = new Monster("troll", 0, 350, 2, 15 + (2 * difficulty), 2 + (difficulty), 50, 50, 30);
+                            Monster d4 = new Monster("troll", 1200, 350, 2, 15 + (2 * difficulty), 2 + (difficulty), 50, 50, 30);
+                            Monster d5 = new Monster("troll", 300, 700, 2, 15 + (2 * difficulty), 2 + (difficulty), 50, 50, 30);
+                            Monster d6 = new Monster("cyclops", 0, 700, 3, 12 + (2 * difficulty), 2 + (difficulty), 35, 35, 20);
+                            monsters.Add(d1);
+                            monsters.Add(d2);
+                            monsters.Add(d3);
+                            monsters.Add(d4);
+                            monsters.Add(d5);
+                            monsters.Add(d6);
+                            monstersLeft = 6;
                             break;
                         case 2:
-
+                            Monster e1 = new Monster("cyclops", 0, 100, 3, 12 + (2 * difficulty), 2 + (difficulty), 35, 35, 20);
+                            Monster e2 = new Monster("cyclops", 1200, 700, 3, 12 + (2 * difficulty), 2 + (difficulty), 35, 35, 20);
+                            Monster e3 = new Monster("cyclops", 600, 600, 3, 12 + (2 * difficulty), 2 + (difficulty), 35, 35, 20);
+                            Monster e4 = new Monster("troll", 0, 350, 2, 15 + (2 * difficulty), 2 + (difficulty), 50, 50, 30);
+                            Monster e5 = new Monster("goblin", 1200, 350, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
+                            Monster e6 = new Monster("troll", 100, 700, 2, 15 + (2 * difficulty), 2 + (difficulty), 50, 50, 30);
+                            monsters.Add(e1);
+                            monsters.Add(e2);
+                            monsters.Add(e3);
+                            monsters.Add(e4);
+                            monsters.Add(e5);
+                            monsters.Add(e6);
+                            monstersLeft = 6;
                             break;
                         case 3:
-
+                            Monster f1 = new Monster("cyclops", 0, 600, 3, 12 + (2 * difficulty), 2 + (difficulty), 35, 35, 20);
+                            Monster f2 = new Monster("cyclops", 1200, 500, 3, 12 + (2 * difficulty), 2 + (difficulty), 35, 35, 20);
+                            Monster f3 = new Monster("cyclops", 200, 700, 3, 12 + (2 * difficulty), 2 + (difficulty), 35, 35, 20);
+                            Monster f4 = new Monster("goblin", 0, 700, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
+                            Monster f5 = new Monster("goblin", 0, 100, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
+                            Monster f6 = new Monster("goblin", 1200, 100, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
+                            Monster f7 = new Monster("goblin", 1200, 0, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
+                            Monster f8 = new Monster("goblin", 350, 700, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
+                            monsters.Add(f1);
+                            monsters.Add(f2);
+                            monsters.Add(f3);
+                            monsters.Add(f4);
+                            monsters.Add(f5);
+                            monsters.Add(f6);
+                            monsters.Add(f7);
+                            monsters.Add(f8);
+                            monstersLeft = 8;
                             break;
                     }
                     break;
@@ -997,15 +1059,63 @@ namespace MonsterBash
                     switch (currentWave)
                     {
                         case 1:
-                            Monster t1 = new Monster("troll", 500, 500, 1, 15 + (2 * difficulty), 2 + (difficulty), 50, 50, 30);
-                            monsters.Add(t1);
-                            monstersLeft = 1;
+                            Monster g1 = new Monster("troll", 1200, 500, 2, 15 + (2 * difficulty), 2 + (difficulty), 50, 50, 30);
+                            Monster g2 = new Monster("troll", 0, 500, 2, 15 + (2 * difficulty), 2 + (difficulty), 50, 50, 30);
+                            Monster g3 = new Monster("troll", 100, 700, 2, 15 + (2 * difficulty), 2 + (difficulty), 50, 50, 30);
+                            Monster g4 = new Monster("goblin", 0, 350, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
+                            Monster g5 = new Monster("goblin", 1200, 350, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
+                            Monster g6 = new Monster("cyclops", 10, 700, 3, 12 + (2 * difficulty), 2 + (difficulty), 35, 35, 20);
+                            Monster g7 = new Monster("cyclops", 1200, 700, 3, 12 + (2 * difficulty), 2 + (difficulty), 35, 35, 20);
+                            monsters.Add(g1);
+                            monsters.Add(g2);
+                            monsters.Add(g3);
+                            monsters.Add(g4);
+                            monsters.Add(g5);
+                            monsters.Add(g6);
+                            monsters.Add(g7);
+                            monstersLeft = 7;
                             break;
                         case 2:
-
+                            Monster h1 = new Monster("goblin", 0, 100, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
+                            Monster h2 = new Monster("goblin", 0, 600, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
+                            Monster h3 = new Monster("goblin", 1200, 100, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
+                            Monster h4 = new Monster("goblin", 1200, 600, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
+                            Monster h5 = new Monster("goblin", 150, 700, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
+                            Monster h6 = new Monster("goblin", 350, 700, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
+                            Monster h7 = new Monster("goblin", 1000, 700, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
+                            Monster h8 = new Monster("troll", 1200, 500, 2, 15 + (2 * difficulty), 2 + (difficulty), 50, 50, 30);
+                            Monster h9 = new Monster("troll", 0, 500, 2, 15 + (2 * difficulty), 2 + (difficulty), 50, 50, 30);
+                            monsters.Add(h1);
+                            monsters.Add(h2);
+                            monsters.Add(h3);
+                            monsters.Add(h4);
+                            monsters.Add(h5);
+                            monsters.Add(h6);
+                            monsters.Add(h7);
+                            monsters.Add(h8);
+                            monsters.Add(h9);
+                            monstersLeft = 9;
                             break;
                         case 3:
-
+                            Monster i1 = new Monster("cyclops", 0, 100, 3, 12 + (2 * difficulty), 2 + (difficulty), 35, 35, 20);
+                            Monster i2 = new Monster("cyclops", 0, 700, 3, 12 + (2 * difficulty), 2 + (difficulty), 35, 35, 20);
+                            Monster i3 = new Monster("cyclops", 1200, 100, 3, 12 + (2 * difficulty), 2 + (difficulty), 35, 35, 20);
+                            Monster i4 = new Monster("cyclops", 1200, 700, 3, 12 + (2 * difficulty), 2 + (difficulty), 35, 35, 20);
+                            Monster i5 = new Monster("cyclops", 600, 600, 3, 12 + (2 * difficulty), 2 + (difficulty), 35, 35, 20);
+                            Monster i6 = new Monster("troll", 1200, 700, 2, 15 + (2 * difficulty), 2 + (difficulty), 50, 50, 30);
+                            Monster i7 = new Monster("troll", 0, 350, 2, 15 + (2 * difficulty), 2 + (difficulty), 50, 50, 30);
+                            Monster i8 = new Monster("goblin", 1200, 350, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
+                            Monster i9 = new Monster("goblin", 0, 350, 4, 9 + (2 * difficulty), 2 + (difficulty), 25, 25, 25);
+                            monsters.Add(i1);
+                            monsters.Add(i2);
+                            monsters.Add(i3);
+                            monsters.Add(i4);
+                            monsters.Add(i5);
+                            monsters.Add(i6);
+                            monsters.Add(i7);
+                            monsters.Add(i8);
+                            monsters.Add(i9);
+                            monstersLeft = 9;
                             break;
                     }
                     break;
@@ -1165,7 +1275,7 @@ namespace MonsterBash
             LevelPrep();
             switch (currentLevel)
             {
-                case 1:
+                case 3:
                     walls.Clear();
                     BaseWalls();
                     Wall w1 = new Wall(150, 150, 300, 50);
@@ -1189,7 +1299,7 @@ namespace MonsterBash
                     Wall w8 = new Wall(950, 450, 50, 150);
                     walls.Add(w8);
                     break;
-                case 3:
+                case 1:
                     walls.Clear();
                     BaseWalls();
                     Wall w9 = new Wall(350, 325, 50, 50);
@@ -1203,10 +1313,8 @@ namespace MonsterBash
         {
             player.x = 575;
             player.y = 325;
-            if (Form1.gunType == "shotgun") gun.bulletCount = 6;
+            if (Form1.gunType == "shotgun") gun.bulletCount = 8;
             else gun.bulletCount = 24;
-            if (Form1.trapType == "bearTrap") totalTraps = 10;
-            else totalTraps = 5;
             traps.Clear();
             bullets.Clear();
         }

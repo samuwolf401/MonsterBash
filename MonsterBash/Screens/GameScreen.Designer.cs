@@ -48,63 +48,84 @@ namespace MonsterBash
             // bulletCountLabel
             // 
             this.bulletCountLabel.AutoSize = true;
-            this.bulletCountLabel.Location = new System.Drawing.Point(42, 22);
+            this.bulletCountLabel.BackColor = System.Drawing.Color.DimGray;
+            this.bulletCountLabel.Font = new System.Drawing.Font("Algerian", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.bulletCountLabel.ForeColor = System.Drawing.Color.Gainsboro;
+            this.bulletCountLabel.Location = new System.Drawing.Point(18, 20);
             this.bulletCountLabel.Name = "bulletCountLabel";
-            this.bulletCountLabel.Size = new System.Drawing.Size(74, 15);
+            this.bulletCountLabel.Size = new System.Drawing.Size(147, 18);
             this.bulletCountLabel.TabIndex = 0;
             this.bulletCountLabel.Text = "Bullets left: 0";
             // 
             // trapCount
             // 
             this.trapCount.AutoSize = true;
-            this.trapCount.Location = new System.Drawing.Point(153, 22);
+            this.trapCount.BackColor = System.Drawing.Color.DimGray;
+            this.trapCount.Font = new System.Drawing.Font("Algerian", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.trapCount.ForeColor = System.Drawing.Color.Gainsboro;
+            this.trapCount.Location = new System.Drawing.Point(187, 22);
             this.trapCount.Name = "trapCount";
-            this.trapCount.Size = new System.Drawing.Size(66, 15);
+            this.trapCount.Size = new System.Drawing.Size(128, 18);
             this.trapCount.TabIndex = 1;
             this.trapCount.Text = "Traps left: 0";
             // 
             // healthLabel
             // 
             this.healthLabel.AutoSize = true;
-            this.healthLabel.Location = new System.Drawing.Point(262, 22);
+            this.healthLabel.BackColor = System.Drawing.Color.DimGray;
+            this.healthLabel.Font = new System.Drawing.Font("Algerian", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.healthLabel.ForeColor = System.Drawing.Color.Gainsboro;
+            this.healthLabel.Location = new System.Drawing.Point(338, 22);
             this.healthLabel.Name = "healthLabel";
-            this.healthLabel.Size = new System.Drawing.Size(60, 15);
+            this.healthLabel.Size = new System.Drawing.Size(104, 18);
             this.healthLabel.TabIndex = 2;
             this.healthLabel.Text = "Health: 00";
             // 
             // levelLabel
             // 
             this.levelLabel.AutoSize = true;
-            this.levelLabel.Location = new System.Drawing.Point(962, 22);
+            this.levelLabel.BackColor = System.Drawing.Color.DimGray;
+            this.levelLabel.Font = new System.Drawing.Font("Algerian", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.levelLabel.ForeColor = System.Drawing.Color.Gainsboro;
+            this.levelLabel.Location = new System.Drawing.Point(824, 20);
             this.levelLabel.Name = "levelLabel";
-            this.levelLabel.Size = new System.Drawing.Size(46, 15);
+            this.levelLabel.Size = new System.Drawing.Size(81, 18);
             this.levelLabel.TabIndex = 3;
             this.levelLabel.Text = "Level: 0";
             // 
             // waveLabel
             // 
             this.waveLabel.AutoSize = true;
-            this.waveLabel.Location = new System.Drawing.Point(1037, 22);
+            this.waveLabel.BackColor = System.Drawing.Color.DimGray;
+            this.waveLabel.Font = new System.Drawing.Font("Algerian", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.waveLabel.ForeColor = System.Drawing.Color.Gainsboro;
+            this.waveLabel.Location = new System.Drawing.Point(938, 22);
             this.waveLabel.Name = "waveLabel";
-            this.waveLabel.Size = new System.Drawing.Size(48, 15);
+            this.waveLabel.Size = new System.Drawing.Size(77, 18);
             this.waveLabel.TabIndex = 4;
             this.waveLabel.Text = "Wave: 0";
             // 
             // difficultyLabel
             // 
             this.difficultyLabel.AutoSize = true;
-            this.difficultyLabel.Location = new System.Drawing.Point(1104, 22);
+            this.difficultyLabel.BackColor = System.Drawing.Color.DimGray;
+            this.difficultyLabel.Font = new System.Drawing.Font("Algerian", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.difficultyLabel.ForeColor = System.Drawing.Color.Gainsboro;
+            this.difficultyLabel.Location = new System.Drawing.Point(1052, 22);
             this.difficultyLabel.Name = "difficultyLabel";
-            this.difficultyLabel.Size = new System.Drawing.Size(67, 15);
+            this.difficultyLabel.Size = new System.Drawing.Size(123, 18);
             this.difficultyLabel.TabIndex = 5;
             this.difficultyLabel.Text = "Difficulty: 0";
             // 
             // scoreLabel
             // 
             this.scoreLabel.AutoSize = true;
-            this.scoreLabel.Location = new System.Drawing.Point(865, 22);
+            this.scoreLabel.BackColor = System.Drawing.Color.DimGray;
+            this.scoreLabel.Font = new System.Drawing.Font("Algerian", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.scoreLabel.ForeColor = System.Drawing.Color.Gainsboro;
+            this.scoreLabel.Location = new System.Drawing.Point(549, 20);
             this.scoreLabel.Name = "scoreLabel";
-            this.scoreLabel.Size = new System.Drawing.Size(66, 15);
+            this.scoreLabel.Size = new System.Drawing.Size(111, 18);
             this.scoreLabel.TabIndex = 6;
             this.scoreLabel.Text = "Score: 0000";
             // 

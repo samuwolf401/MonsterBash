@@ -16,6 +16,8 @@ namespace MonsterBash
         public static string trapType;
         public static int difficultyType = -1;
         public static int score = 0;
+        public static int newScore;
+        public static string newName;
         public Form1()
         {
             InitializeComponent();
